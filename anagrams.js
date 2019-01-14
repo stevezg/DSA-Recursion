@@ -21,3 +21,4 @@ function anagrams (word) {
 }
 
 console.log(anagrams('easts').length);
+
