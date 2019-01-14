@@ -9,3 +9,12 @@ const doubleNumber = (array) => {
 }
 let ar = [1,2,3]
 console.log(doubleNumber(ar))
+
+const doubleNumberIterative = function (array) {
+  let newArray = array.map(item => {
+    return item*2
+  })
+  return console.log(newArray)
+}
+
+doubleNumberIterative(ar)
