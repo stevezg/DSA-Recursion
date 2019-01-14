@@ -9,4 +9,13 @@ else{
     countSheep(number -1);
 }}
 
-countSheep(5);
+// countSheep(5);
+
+
+let CSI = (number) => {
+  for(let i=0;i<=number;i++){
+  console.log(`${i} Another sheep jumps over the fence`)
+  }
+
+}
+CSI(5)
