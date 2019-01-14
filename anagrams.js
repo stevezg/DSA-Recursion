@@ -1,20 +1,24 @@
+'use strict';
+// east
 function anagrams (word) {
-
-  let results = {};
-
-  let combos = function (buildCombo, feed) {
-    if (!feed.length) {
-      results[buildCombo] = '';
-      return;
+  // get a letter from word and use as prefix
+  const results = [];
+  function anagramsHelper(prefix, word1) {
+    // base case : word is 1 letter
+    if(word1.length === 1){
+      results.push(prefix + word1);
+      return word1[0];
     }
-    for (let i = 0; i < feed.length; i++) {
-      combos(buildCombo + feed.charAt(i), feed.slice(0, i) + feed.slice(i + 1));
-    }
-  };
-
-  combos('', word);
-  return Object.keys(results);
-
+    word1.split('').forEach((pre, index) => {
+      let firstPartOfWord = word1.slice(0,index);
+      let secondPartOfWord = word1.slice(index + 1);
+      const result = anagramsHelper(prefix + pre, firstPartOfWord + secondPartOfWord);
+      return result;
+    });
+  }
+  anagramsHelper('', word);
+  return results;
 }
 
-console.log(anagrams('steve'));
+console.log(anagrams('easts').length);
+
